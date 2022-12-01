@@ -24,7 +24,7 @@ def main():
     
     print(chalk.green.bold("Benchmarks:"))
     for i in range(len(timestamps)):
-        print(chalk.red("Part {i}: ").format(i = i + 1) + "{time}".format(i = i + 1, time = timestamps[i]))
+        print(chalk.red("Part {i}: ").format(i = i + 1) + "{time} us".format(i = i + 1, time = round(timestamps[i] * 1000000, 1)))
 
 if __name__ == "__main__":
     main()
