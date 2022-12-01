@@ -10,6 +10,7 @@ namespace Day01CalorieCounting
         static void Main(string[] args)
         {
             PartOne();
+            PartTwo();
         }
 
         private static void PartOne()
@@ -23,6 +24,20 @@ namespace Day01CalorieCounting
             }
 
             Console.WriteLine($"Result: {caloriesPerElf.Max()}");
+        }
+
+        private static void PartTwo()
+        {
+            List<List<string>> input = FileReader.ReadAllLinesFromInputFileGroupedByBlankLine();
+            List<int> caloriesPerElf = new List<int>();
+
+            foreach (List<string> inputPerElf in input)
+            {
+                caloriesPerElf.Add(inputPerElf.ConvertAll(int.Parse).Sum());
+            }
+            caloriesPerElf.Sort();
+
+            Console.WriteLine($"Result: {caloriesPerElf.TakeLast(3).Sum()}");
         }
     }
 }
