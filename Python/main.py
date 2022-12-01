@@ -10,6 +10,7 @@ def main():
     module = str_to_module(CURRENT_DAY)
     input = get_array_input(CURRENT_DAY)
 
+    print(chalk.yellow.bold("Day {CURRENT_DAY}".format(CURRENT_DAY=CURRENT_DAY)))
     print(chalk.green.bold("Solutions:"))
     stopwatch.capture_time()
     print(chalk.red("Part 1: ") + str(module.a(input)))
