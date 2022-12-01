@@ -53,6 +53,7 @@ namespace Util
                     group = new List<string>();
                 }
             }
+            result.Add(group);
             return result;
         }
     }
