@@ -1,5 +1,5 @@
 def a(input):
-    pass
+    return input
 
 def b(input):
     pass
