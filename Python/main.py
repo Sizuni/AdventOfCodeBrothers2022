@@ -13,10 +13,12 @@ def main():
     print(chalk.yellow.bold("Day {CURRENT_DAY}".format(CURRENT_DAY=CURRENT_DAY)))
     print(chalk.green.bold("Solutions:"))
     stopwatch.capture_time()
-    print(chalk.red("Part 1: ") + str(module.a(input)))
+    part_1 = str(module.a(input))
     stopwatch.capture_time()
-    print(chalk.red("Part 2: ") + str(module.b(input)))
+    part_2 = str(module.b(input))
     stopwatch.capture_time()
+    print(chalk.red("Part 1: ") + part_1)
+    print(chalk.red("Part 2: ") + part_2)
     
     timestamps = stopwatch.return_timestamps()
     
