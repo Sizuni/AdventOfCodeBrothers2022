@@ -1,29 +1,9 @@
 def get_result(round):
+    score_matrix = [3, 6, 0]
     moves = round.split(" ")
-    opponent = moves[0]
-    you = moves[1]
-    if opponent == "A":
-        if you == "X":
-            return 3 + 1
-        elif you == "Y":
-            return 6 + 2
-        else:
-            return 0 + 3
-    elif opponent == "B":
-        if you == "X":
-            return 0 + 1
-        elif you == "Y":
-            return 3 + 2
-        else:
-            return 6 + 3
-    else:
-        if you == "X":
-            return 6 + 1
-        elif you == "Y":
-            return 0 + 2
-        else:
-            return 3 + 3
-
+    opponent = int(ord(moves[0]) - 65)
+    you = int(ord(moves[1]) - 88)
+    return (score_matrix[3 - opponent:] + score_matrix[:3 - opponent])[you] + you + 1
 
 def a(input):
     points = 0
