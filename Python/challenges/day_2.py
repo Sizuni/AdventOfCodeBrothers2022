@@ -2,7 +2,6 @@ def get_result(round):
     moves = round.split(" ")
     opponent = moves[0]
     you = moves[1]
-    print(moves)
     if opponent == "A":
         if you == "X":
             return 3 + 1
@@ -21,16 +20,15 @@ def get_result(round):
         if you == "X":
             return 6 + 1
         elif you == "Y":
-            return 3 + 2
+            return 0 + 2
         else:
-            return 0 + 3
+            return 3 + 3
 
 
 def a(input):
     points = 0
     for round in input:
         points += get_result(round)
-        print(points)
     return points
 
 def b(input):
