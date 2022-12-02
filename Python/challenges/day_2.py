@@ -6,8 +6,8 @@ def get_result(round, strategy=False):
     if not strategy:
         return (score_matrix[3 - opponent:] + score_matrix[:3 - opponent])[you] + you + 1
     else:
-        moves = [0, 1, 2, 0, 1, 2]
-        you = moves[opponent - 1 + you]
+        predict_move_matrix = [0, 1, 2, 0, 1, 2]
+        you = predict_move_matrix[opponent - 1 + you]
         return (score_matrix[3 - opponent:] + score_matrix[:3 - opponent])[you] + you + 1
 
 def a(input):
