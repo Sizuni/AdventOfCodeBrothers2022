@@ -1,8 +1,8 @@
 def get_result(round, strategy=False):
     score_matrix = [3, 6, 0]
     moves = round.split(" ")
-    opponent = int(ord(moves[0]) - 65)
-    you = int(ord(moves[1]) - 88)
+    opponent = int(ord(moves[0]) - ord("A"))
+    you = int(ord(moves[1]) - ord("X"))
     if not strategy:
         return (score_matrix[3 - opponent:] + score_matrix[:3 - opponent])[you] + you + 1
     else:
