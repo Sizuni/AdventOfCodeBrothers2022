@@ -7,36 +7,44 @@ using Util;
 
 namespace Day02RockPaperScissors
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
-            SolutionWriter<int>.WriteSolution(PartOne(), 0);
+            var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
+            SolutionWriter<int>.WriteSolution(PartOne(), PartTwo());
         }
 
         public static int PartOne()
         {
             List<string> input = FileReader.ReadAllLinesFromInputFile();
-            RockPaperScissorsService service = new RockPaperScissorsService();
+            RockPaperScissorsService service = new RockPaperScissorsByShapeService();
 
             return input.Select(service.GetRoundResult).Sum();
         }
-    }
 
-    [MemoryDiagnoser]
-    public class ProgramBenchmarker
-    {
-        [Benchmark]
-        public void PartOne()
+        public static int PartTwo()
         {
-            Program.PartOne();
+            List<string> input = FileReader.ReadAllLinesFromInputFile();
+            RockPaperScissorsService service = new RockPaperScissorsByRoundResultService();
+
+            return input.Select(service.GetRoundResult).Sum();
         }
 
-        //[Benchmark]
-        //public void PartTwo()
-        //{
-        //    Program.PartTwo();
-        //}
+        [MemoryDiagnoser]
+        public class ProgramBenchmarker
+        {
+            [Benchmark]
+            public void PartOne()
+            {
+                Program.PartOne();
+            }
+
+            [Benchmark]
+            public void PartTwo()
+            {
+                Program.PartTwo();
+            }
+        }
     }
 }
