@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using Day03RucksackReorganization.Domain;
+using Day03RucksackReorganization.Services;
 using System.Collections.Generic;
 using System.Linq;
 using Util;
@@ -20,7 +21,7 @@ namespace Day03RucksackReorganization
 
             return input.Select(line => new Rucksack(line))
                 .Select(r => r.FindCommonItemInBothCompartments())
-                .Select(Rucksack.GetPriorityForItem)
+                .Select(ItemService.GetPriorityForItem)
                 .Sum();
         }
 
@@ -32,7 +33,7 @@ namespace Day03RucksackReorganization
             for (int i = 0; i < input.Count; i += 3)
             {
                 Group group = new Group(new Rucksack(input[i]), new Rucksack(input[i + 1]), new Rucksack(input[i + 2]));
-                sum += Rucksack.GetPriorityForItem(group.FindCommonItemInAllRucksacks());
+                sum += ItemService.GetPriorityForItem(group.FindCommonItemInAllRucksacks());
             }
 
             return sum;
