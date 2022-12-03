@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using Day03RucksackReorganization.Domain;
 using Day03RucksackReorganization.Services;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Day03RucksackReorganization
     {
         static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
+            var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
             SolutionWriter<int>.WriteSolution(PartOne(), PartTwo());
         }
 
