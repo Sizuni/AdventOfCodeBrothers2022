@@ -26,7 +26,16 @@ namespace Day03RucksackReorganization
 
         public static int PartTwo()
         {
-            return 0;
+            List<string> input = FileReader.ReadAllLinesFromInputFile();
+
+            int sum = 0;
+            for (int i = 0; i < input.Count; i += 3)
+            {
+                Group group = new Group(new Rucksack(input[i]), new Rucksack(input[i + 1]), new Rucksack(input[i + 2]));
+                sum += Rucksack.GetPriorityForItem(group.FindCommonItemInAllRucksacks());
+            }
+
+            return sum;
         }
     }
 
