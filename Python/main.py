@@ -3,7 +3,7 @@ from challenges.utility.file_reader import get_array_input
 from challenges.utility.string_to_module import str_to_module
 from challenges.utility.stopwatch import Stopwatch
 
-CURRENT_DAY = 3
+CURRENT_DAY = 4
 
 def main():
     stopwatch = Stopwatch()
