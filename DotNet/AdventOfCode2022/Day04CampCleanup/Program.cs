@@ -12,7 +12,7 @@ namespace Day04CampCleanup
     {
         static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
+            var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
             SolutionWriter<int>.WriteSolution(PartOne(), PartTwo());
         }
 
