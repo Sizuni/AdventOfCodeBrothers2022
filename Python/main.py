@@ -2,11 +2,13 @@ from simple_chalk import chalk
 from challenges.utility.file_reader import get_array_input
 from challenges.utility.string_to_module import str_to_module
 from challenges.utility.stopwatch import Stopwatch
+from challenges.utility.time_unit_converter import TimeConverter
 
-CURRENT_DAY = 3
+CURRENT_DAY = 4
 
 def main():
     stopwatch = Stopwatch()
+    time_converter = TimeConverter()
     module = str_to_module(CURRENT_DAY)
     input = get_array_input(CURRENT_DAY)
 
@@ -24,7 +26,7 @@ def main():
     
     print(chalk.green.bold("Benchmarks:"))
     for i in range(len(timestamps)):
-        print(chalk.red("Part {i}: ").format(i = i + 1) + "{time} us".format(i = i + 1, time = round(timestamps[i] * 1000000, 1)))
+        print(chalk.red("Part {i}: ").format(i = i + 1) + "{time}".format(i = i + 1, time = time_converter.convert_time(timestamps[i])))
 
 if __name__ == "__main__":
     main()
