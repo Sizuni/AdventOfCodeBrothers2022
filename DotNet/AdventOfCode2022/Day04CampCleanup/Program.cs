@@ -29,8 +29,11 @@ namespace Day04CampCleanup
         public static int PartTwo()
         {
             List<string> input = FileReader.ReadAllLinesFromInputFile();
-
-            return 0;
+            return input.Select(line => line.Split(',', '-'))
+                .Select(sectionList => Array.ConvertAll(sectionList, int.Parse))
+                .Select(sectionList => new SectionAssignmentPair(sectionList[0], sectionList[1], sectionList[2], sectionList[3]))
+                .Where(section => section.HasOverlap())
+                .Count();
         }
     }
 
