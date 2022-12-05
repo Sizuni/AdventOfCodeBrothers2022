@@ -13,7 +13,7 @@ namespace Day05SupplyStacks
     {
         static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
+            var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
             SolutionWriter<string>.WriteSolution(PartOne(), PartTwo());
         }
 
