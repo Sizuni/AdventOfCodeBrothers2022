@@ -34,7 +34,10 @@ namespace Day05SupplyStacks
 
             foreach (var procedureInstruction in procedureInstructions)
             {
-                shipCargo.MoveCrate(procedureInstruction.From, procedureInstruction.To, procedureInstruction.Amount);
+                for (int i = 0; i < procedureInstruction.Amount; i++)
+                {
+                    shipCargo.MoveCrate(procedureInstruction.From, procedureInstruction.To);
+                }
             }
 
             return shipCargo.ReadTopOfEachStack();
@@ -42,9 +45,25 @@ namespace Day05SupplyStacks
 
         public static string PartTwo()
         {
-            List<string> input = FileReader.ReadAllLinesFromInputFile();
+            List<List<string>> input = FileReader.ReadAllLinesFromInputFileGroupedByBlankLine();
+            List<string> stacksInput = input[0];
+            List<string> procedureInput = input[1];
 
-            return "";
+            List<SupplyStack> supplyStacks = ParseSupplyStacksFromInput(stacksInput);
+            List<ProcedureInstruction> procedureInstructions = ParseProcedureInstructionsFromInput(procedureInput);
+
+            ShipCargo shipCargo = new ShipCargo();
+            foreach (var supplyStack in supplyStacks)
+            {
+                shipCargo.AddSupplyStack(supplyStack);
+            }
+
+            foreach (var procedureInstruction in procedureInstructions)
+            {
+                shipCargo.MoveCrate(procedureInstruction.From, procedureInstruction.To, procedureInstruction.Amount);
+            }
+
+            return shipCargo.ReadTopOfEachStack();
         }
 
         private static List<SupplyStack> ParseSupplyStacksFromInput(List<string> input)
