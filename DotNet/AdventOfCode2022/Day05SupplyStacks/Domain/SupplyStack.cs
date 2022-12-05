@@ -4,26 +4,33 @@ namespace Day05SupplyStacks.Domain
 {
     public class SupplyStack
     {
-        public Stack<Crate> Crates { get; set; }
+        public List<Crate> Crates { get; set; }
 
         public SupplyStack()
         {
-            Crates = new Stack<Crate>();
+            Crates = new List<Crate>();
         }
 
         public void AddCrate(Crate crate)
         {
-            Crates.Push(crate);
+            Crates.Add(crate);
         }
 
-        public Crate TakeCrate()
+        public void AddCrates(IList<Crate> crates)
         {
-            return Crates.Pop();
+            Crates.AddRange(crates);
         }
 
-        public Crate PeekCrate()
+        public IList<Crate> TakeCrates(int amount = 1)
         {
-            return Crates.Peek();
+            List<Crate> crates = Crates.GetRange(Crates.Count - amount, amount);
+            Crates.RemoveRange(Crates.Count - amount, amount);
+            return crates;
+        }
+
+        public Crate PeekTopCrate()
+        {
+            return Crates[Crates.Count - 1];
         }
     }
 }

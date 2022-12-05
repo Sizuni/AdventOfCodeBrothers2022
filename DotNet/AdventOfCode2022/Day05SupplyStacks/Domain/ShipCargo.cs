@@ -19,16 +19,13 @@ namespace Day05SupplyStacks.Domain
 
         public void MoveCrate(int from, int to, int amount = 1)
         {
-            for (int i = 0; i < amount; i++)
-            {
-                Crate crate = SupplyStacks[from - 1].TakeCrate();
-                SupplyStacks[to - 1].AddCrate(crate);
-            }
+            IList<Crate> crates = SupplyStacks[from - 1].TakeCrates(amount);
+            SupplyStacks[to - 1].AddCrates(crates);
         }
 
         public string ReadTopOfEachStack()
         {
-            return string.Join("", SupplyStacks.Select(stack => stack.PeekCrate().ToString()));
+            return string.Join("", SupplyStacks.Select(stack => stack.PeekTopCrate().ToString()));
         }
     }
 }
