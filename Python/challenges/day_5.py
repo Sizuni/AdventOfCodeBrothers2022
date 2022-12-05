@@ -24,16 +24,24 @@ def prepare_initial_stacks(input: list):
     
     return stacks, input[counter + 2:]
     
-def move_containers(stacks, move):
+def move_containers(stacks, move, crate_mover_9001=False):
     # RegEx for extracting digits
     steps = re.findall(r'\d+', move)
     amount = int(steps[0])
     src = int(steps[1]) - 1
     dst = int(steps[2]) - 1
     
-    for i in range(amount):
-        container = stacks[src].pop()
-        stacks[dst].append(container)
+    if not crate_mover_9001:
+        for i in range(amount):
+            container = stacks[src].pop()
+            stacks[dst].append(container)
+    else:
+        containers = []
+        for i in range(amount):
+            containers.append(stacks[src].pop())
+        for j in range(amount):
+            stacks[dst].append(containers.pop())
+
     return stacks
 
 def get_top_containers(stacks):
@@ -49,4 +57,7 @@ def a(input):
     return get_top_containers(stacks)
 
 def b(input):
-    pass
+    stacks, input = prepare_initial_stacks(input)
+    for move in input:
+        stacks = move_containers(stacks, move, True)
+    return get_top_containers(stacks)
