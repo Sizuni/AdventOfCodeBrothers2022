@@ -47,7 +47,7 @@ def move_containers(stacks, move, crate_mover_9001=False):
 def get_top_containers(stacks):
     top_crates = ""
     for stack in stacks:
-        top_crates += stack.pop()
+        top_crates += stack.top()
     return top_crates
 
 def a(input):
