@@ -104,8 +104,8 @@ namespace Day05SupplyStacks
         private static List<ProcedureInstruction> ParseProcedureInstructionsFromInput(List<string> input)
         {
             List<ProcedureInstruction> instructions = new List<ProcedureInstruction>();
-            return input.Select(line => Regex.Split(line, @"\D+").Skip(1).ToArray()) // Skip 1 because using regex will place an empty value on the first index
-                .Select(stringValues => Array.ConvertAll(stringValues, int.Parse))
+            return input.Select(line => Regex.Matches(line, @"\d+").Select(match => match.Value))
+                .Select(stringValues => Array.ConvertAll(stringValues.ToArray(), int.Parse))
                 .Select(values => new ProcedureInstruction(values[0], values[1], values[2]))
                 .ToList();
         }
