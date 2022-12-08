@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using Util;
 
 namespace Day06TuningTrouble
@@ -7,7 +8,7 @@ namespace Day06TuningTrouble
     {
         static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
+            var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
             SolutionWriter<int>.WriteSolution(PartOne(), PartTwo());
         }
 
