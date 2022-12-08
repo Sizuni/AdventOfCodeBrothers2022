@@ -4,7 +4,7 @@ from challenges.utility.string_to_module import str_to_module
 from challenges.utility.stopwatch import Stopwatch
 from challenges.utility.time_unit_converter import TimeConverter
 
-CURRENT_DAY = 6
+CURRENT_DAY = 7
 
 def main():
     stopwatch = Stopwatch()
