@@ -21,7 +21,8 @@ namespace Day06TuningTrouble
         public static int PartTwo()
         {
             string input = FileReader.ReadAllLinesFromInputFile()[0];
-            return 0;
+
+            return CommunicationSystemService.FindStartOfPacketMarker(input, 14);
         }
     }
 
