@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Day06TuningTrouble
+namespace Day06TuningTrouble.Services
 {
     public class CommunicationSystemService
     {
@@ -22,7 +22,7 @@ namespace Day06TuningTrouble
                 {
                     return i + 1;
                 }
-                
+
             }
 
             return 0;

@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using Day06TuningTrouble.Services;
 using Util;
 
 namespace Day06TuningTrouble
