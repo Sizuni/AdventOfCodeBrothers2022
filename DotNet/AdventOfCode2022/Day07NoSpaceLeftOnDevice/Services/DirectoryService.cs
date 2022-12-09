@@ -5,15 +5,31 @@ namespace Day07NoSpaceLeftOnDevice.Services
 {
     public class DirectoryService
     {
-        public static List<Directory> FindSubDirectoriesWithSizeSmallerThan(Directory directory, int size)
+        public static List<Directory> FindSubDirectoriesWithSizeLessThan(Directory directory, int size)
         {
             List<Directory> result = new List<Directory>();
 
             foreach (Directory subDirectory in directory.SubDirectories)
             {
-                result.AddRange(FindSubDirectoriesWithSizeSmallerThan(subDirectory, size));
+                result.AddRange(FindSubDirectoriesWithSizeLessThan(subDirectory, size));
             }
             if (directory.GetSize() < size)
+            {
+                result.Add(directory);
+            }
+
+            return result;
+        }
+
+        public static List<Directory> FindSubDirectoriesWithSizeGreaterThanrOrEqualTo(Directory directory, int size)
+        {
+            List<Directory> result = new List<Directory>();
+
+            foreach (Directory subDirectory in directory.SubDirectories)
+            {
+                result.AddRange(FindSubDirectoriesWithSizeGreaterThanrOrEqualTo(subDirectory, size));
+            }
+            if (directory.GetSize() >= size)
             {
                 result.Add(directory);
             }

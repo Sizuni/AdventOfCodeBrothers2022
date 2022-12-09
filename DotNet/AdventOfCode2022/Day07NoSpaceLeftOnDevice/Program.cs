@@ -20,7 +20,7 @@ namespace Day07NoSpaceLeftOnDevice
         {
             List<string> input = FileReader.ReadAllLinesFromInputFile();
             Directory root = ParseRootDirectoryInput(input);
-            List<Directory> directories = DirectoryService.FindSubDirectoriesWithSizeSmallerThan(root, 100000);
+            List<Directory> directories = DirectoryService.FindSubDirectoriesWithSizeLessThan(root, 100000);
 
             return directories.Select(d => d.GetSize()).Sum();
         }
@@ -28,8 +28,14 @@ namespace Day07NoSpaceLeftOnDevice
         public static int PartTwo()
         {
             List<string> input = FileReader.ReadAllLinesFromInputFile();
+            Directory root = ParseRootDirectoryInput(input);
+            int totalDiskSpace = 70000000;
+            int requiredFreeSpace = 30000000;
+            int currentFreeSpace = totalDiskSpace - root.GetSize();
+            int minimumSpaceToBeDeleted = requiredFreeSpace - currentFreeSpace;
 
-            return 0;
+            return DirectoryService.FindSubDirectoriesWithSizeGreaterThanrOrEqualTo(root, minimumSpaceToBeDeleted)
+                .Min(d => d.GetSize());
         }
 
         private static Directory ParseRootDirectoryInput(List<string> input)
