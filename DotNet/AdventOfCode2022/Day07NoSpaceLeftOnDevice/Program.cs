@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using Day07NoSpaceLeftOnDevice.Domain;
 using Day07NoSpaceLeftOnDevice.Services;
 using System;
@@ -12,7 +13,7 @@ namespace Day07NoSpaceLeftOnDevice
     {
         static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
+            var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
             SolutionWriter<int>.WriteSolution(PartOne(), PartTwo());
         }
 
