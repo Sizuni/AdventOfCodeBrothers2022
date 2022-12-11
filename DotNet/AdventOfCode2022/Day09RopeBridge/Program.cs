@@ -21,36 +21,7 @@ namespace Day09RopeBridge
             RopePositionMapperService service = new RopePositionMapperService(new ShortRope());
             foreach (string line in input)
             {
-                string[] lineInfo = line.Split(' ');
-                string direction = lineInfo[0];
-                int amount = Convert.ToInt32(lineInfo[1]);
-                switch(direction)
-                {
-                    case "R":
-                        for (int i = 0; i < amount; i++)
-                        {
-                            service.MoveRight();
-                        }
-                        break;
-                    case "L":
-                        for (int i = 0; i < amount; i++)
-                        {
-                            service.MoveLeft();
-                        }
-                        break;
-                    case "U":
-                        for (int i = 0; i < amount; i++)
-                        {
-                            service.MoveUp();
-                        }
-                        break;
-                    case "D":
-                        for (int i = 0; i < amount; i++)
-                        {
-                            service.MoveDown();
-                        }
-                        break;
-                }
+                ParseLine(line, service);
             }
 
             return service.GetAmountOfPositionsVisited();
@@ -62,39 +33,44 @@ namespace Day09RopeBridge
             RopePositionMapperService service = new RopePositionMapperService(new LongRope(10));
             foreach (string line in input)
             {
-                string[] lineInfo = line.Split(' ');
-                string direction = lineInfo[0];
-                int amount = Convert.ToInt32(lineInfo[1]);
-                switch (direction)
-                {
-                    case "R":
-                        for (int i = 0; i < amount; i++)
-                        {
-                            service.MoveRight();
-                        }
-                        break;
-                    case "L":
-                        for (int i = 0; i < amount; i++)
-                        {
-                            service.MoveLeft();
-                        }
-                        break;
-                    case "U":
-                        for (int i = 0; i < amount; i++)
-                        {
-                            service.MoveUp();
-                        }
-                        break;
-                    case "D":
-                        for (int i = 0; i < amount; i++)
-                        {
-                            service.MoveDown();
-                        }
-                        break;
-                }
+                ParseLine(line, service);
             }
 
             return service.GetAmountOfPositionsVisited();
+        }
+
+        private static void ParseLine(string line, RopePositionMapperService service)
+        {
+            string[] lineInfo = line.Split(' ');
+            string direction = lineInfo[0];
+            int amount = Convert.ToInt32(lineInfo[1]);
+            switch (direction)
+            {
+                case "R":
+                    for (int i = 0; i < amount; i++)
+                    {
+                        service.MoveRight();
+                    }
+                    break;
+                case "L":
+                    for (int i = 0; i < amount; i++)
+                    {
+                        service.MoveLeft();
+                    }
+                    break;
+                case "U":
+                    for (int i = 0; i < amount; i++)
+                    {
+                        service.MoveUp();
+                    }
+                    break;
+                case "D":
+                    for (int i = 0; i < amount; i++)
+                    {
+                        service.MoveDown();
+                    }
+                    break;
+            }
         }
     }
 
