@@ -6,52 +6,52 @@ namespace Day09RopeBridge.Services
 {
     public class RopePositionMapperService
     {
-        private Rope rope;
-        private Dictionary<Coordinate2D, int> tailPositionCounter;
+        private readonly IRope _rope;
+        private Dictionary<Coordinate2D, int> _tailPositionCounter;
 
-        public RopePositionMapperService()
+        public RopePositionMapperService(IRope rope)
         {
-            rope = new Rope();
-            tailPositionCounter = new Dictionary<Coordinate2D, int>();
+            _rope = rope;
+            _tailPositionCounter = new Dictionary<Coordinate2D, int>();
 
             Coordinate2D tailPosition = new Coordinate2D { X = rope.TailPosition.X, Y = rope.TailPosition.Y };
-            tailPositionCounter.Add(tailPosition, 1);
+            _tailPositionCounter.Add(tailPosition, 1);
         }
 
         public void MoveRight()
         {
-            rope.MoveRight();
+            _rope.MoveRight();
             IncrementTailPositionCounter();
         }
 
         public void MoveLeft()
         {
-            rope.MoveLeft();
+            _rope.MoveLeft();
             IncrementTailPositionCounter();
         }
 
         public void MoveUp()
         {
-            rope.MoveUp();
+            _rope.MoveUp();
             IncrementTailPositionCounter();
         }
 
         public void MoveDown()
         {
-            rope.MoveDown();
+            _rope.MoveDown();
             IncrementTailPositionCounter();
         }
 
         public int GetAmountOfPositionsVisited()
         {
-            return tailPositionCounter.Values.Count;
+            return _tailPositionCounter.Values.Count;
         }
 
         private void IncrementTailPositionCounter()
         {
-            Coordinate2D tailPosition = new Coordinate2D { X = rope.TailPosition.X, Y = rope.TailPosition.Y };
-            tailPositionCounter.TryGetValue(tailPosition, out int count);
-            tailPositionCounter[tailPosition] = count + 1;
+            Coordinate2D tailPosition = new Coordinate2D { X = _rope.TailPosition.X, Y = _rope.TailPosition.Y };
+            _tailPositionCounter.TryGetValue(tailPosition, out int count);
+            _tailPositionCounter[tailPosition] = count + 1;
         }
     }
 }

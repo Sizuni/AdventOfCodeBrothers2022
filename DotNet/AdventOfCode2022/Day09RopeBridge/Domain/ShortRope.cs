@@ -3,12 +3,12 @@ using Util;
 
 namespace Day09RopeBridge.Domain
 {
-    public class Rope
+    public class ShortRope : IRope
     {
         public Coordinate2D HeadPosition { get; private set; }
         public Coordinate2D TailPosition { get; private set; }
 
-        public Rope()
+        public ShortRope()
         {
             HeadPosition = new Coordinate2D();
             TailPosition = new Coordinate2D();
