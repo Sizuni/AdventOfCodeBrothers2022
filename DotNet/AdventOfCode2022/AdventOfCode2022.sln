@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day05SupplyStacks", "Day05S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day06TuningTrouble", "Day06TuningTrouble\Day06TuningTrouble.csproj", "{60DD2F66-E5AC-4A2C-9F7B-019332A89CD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day07NoSpaceLeftOnDevice", "Day07NoSpaceLeftOnDevice\Day07NoSpaceLeftOnDevice.csproj", "{265A551E-C4F5-48AE-8DF7-A7B012C5F49B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day07NoSpaceLeftOnDevice", "Day07NoSpaceLeftOnDevice\Day07NoSpaceLeftOnDevice.csproj", "{265A551E-C4F5-48AE-8DF7-A7B012C5F49B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day08TreetopTreeHouse", "Day08TreetopTreeHouse\Day08TreetopTreeHouse.csproj", "{25DBB074-756C-408B-8687-40C90FE75935}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{265A551E-C4F5-48AE-8DF7-A7B012C5F49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{265A551E-C4F5-48AE-8DF7-A7B012C5F49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{265A551E-C4F5-48AE-8DF7-A7B012C5F49B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25DBB074-756C-408B-8687-40C90FE75935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25DBB074-756C-408B-8687-40C90FE75935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25DBB074-756C-408B-8687-40C90FE75935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25DBB074-756C-408B-8687-40C90FE75935}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
