@@ -24,8 +24,21 @@ namespace Day08TreetopTreeHouse
         public static int PartTwo()
         {
             List<string> input = FileReader.ReadAllLinesFromInputFile();
+            TreeGridService service = TreeGridService.CreateTreeGridFromInput(input);
 
-            return 0;
+            int highestScenicScore = 0;
+            for (int row = 0; row < service.TreeGrid.Size; row++)
+            {
+                for (int column = 0; column < service.TreeGrid.Size; column++)
+                {
+                    int otherScore = service.GetScenicScore(row, column);
+                    if (otherScore > highestScenicScore)
+                    {
+                        highestScenicScore = otherScore;
+                    }
+                }
+            }
+            return highestScenicScore;
         }
     }
 

@@ -118,5 +118,59 @@ namespace Day08TreetopTreeHouse.Services
             }
             return sum;
         }
+
+        public int GetScenicScore(int row, int column)
+        {
+            if (row == 0 || row == TreeGrid.Size - 1
+                || column == 0 || column == TreeGrid.Size - 1)
+            {
+                // The tree is on an edge
+                return 0;
+            }
+
+            int currentTreeHeight = TreeGrid.GetTreeHeight(row, column);
+
+            int countRight = 0;
+            for (int i = column + 1; i < TreeGrid.Size; i++)
+            {
+                countRight++;
+                if (TreeGrid.GetTreeHeight(row, i) >= currentTreeHeight)
+                {
+                    break;
+                }
+            }
+
+            int countLeft = 0;
+            for (int i = column - 1; i >= 0; i--)
+            {
+                countLeft++;
+                if (TreeGrid.GetTreeHeight(row, i) >= currentTreeHeight)
+                {
+                    break;
+                }
+            }
+
+            int countDown = 0;
+            for (int i = row + 1; i < TreeGrid.Size; i++)
+            {
+                countDown++;
+                if (TreeGrid.GetTreeHeight(i, column) >= currentTreeHeight)
+                {
+                    break;
+                }
+            }
+
+            int countUp = 0;
+            for (int i = row - 1; i >= 0; i--)
+            {
+                countUp++;
+                if (TreeGrid.GetTreeHeight(i, column) >= currentTreeHeight)
+                {
+                    break;
+                }
+            }
+
+            return countRight * countLeft * countDown * countUp;
+        }
     }
 }
