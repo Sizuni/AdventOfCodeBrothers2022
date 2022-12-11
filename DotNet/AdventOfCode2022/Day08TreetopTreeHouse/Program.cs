@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using Day08TreetopTreeHouse.Services;
 using System.Collections.Generic;
 using Util;
@@ -9,7 +10,7 @@ namespace Day08TreetopTreeHouse
     {
         static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
+            var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
             SolutionWriter<int>.WriteSolution(PartOne(), PartTwo());
         }
 
