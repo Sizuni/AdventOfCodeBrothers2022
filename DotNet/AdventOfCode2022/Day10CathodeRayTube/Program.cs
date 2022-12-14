@@ -11,10 +11,10 @@ namespace Day10CathodeRayTube
         static void Main(string[] args)
         {
             //var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
-            SolutionWriter<int>.WriteSolution(PartOne(), PartTwo());
+            SolutionWriter<string>.WriteSolution(PartOne(), PartTwo());
         }
 
-        public static int PartOne()
+        public static string PartOne()
         {
             List<string> input = FileReader.ReadAllLinesFromInputFile();
             CpuService service = new CpuService(new Cpu());
@@ -28,13 +28,18 @@ namespace Day10CathodeRayTube
             {
                 sum += cycle * service.Cpu.GetSignalStrenghtForCycle(cycle);
             }
-            return sum;
+            return sum.ToString();
         }
 
-        public static int PartTwo()
+        public static string PartTwo()
         {
             List<string> input = FileReader.ReadAllLinesFromInputFile();
-            return 0;
+            CpuService service = new CpuService(new Cpu());
+            foreach (string instruction in input)
+            {
+                service.ApplyInstruction(instruction);
+            }
+            return "\n" + service.DrawImage();
         }
     }
 
