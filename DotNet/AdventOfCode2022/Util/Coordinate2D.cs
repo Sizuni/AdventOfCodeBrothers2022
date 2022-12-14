@@ -23,5 +23,24 @@ namespace Util
             X = Convert.ToInt32(splitValues[0]);
             Y = Convert.ToInt32(splitValues[1]);
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Coordinate2D d &&
+                   X == d.X &&
+                   Y == d.Y;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(X, Y);
+        }
+
+        public override string ToString()
+        {
+            return $"{X},{Y}";
+        }
+
+
     }
 }
