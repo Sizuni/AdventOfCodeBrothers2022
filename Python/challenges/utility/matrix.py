@@ -30,7 +30,13 @@ class Matrix():
         for i in range(len(self.matrix)):
             column.append(self.matrix[i][index])
         return column
-            
+    
+    def update_column(self, index: int, column: list):
+        column_index = -1
+        for row in self.matrix:
+            column_index += 1
+            row[index] = column[column_index]
+                
     def __str__(self):
         output = ""
         for row in self.matrix:

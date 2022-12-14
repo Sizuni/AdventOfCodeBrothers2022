@@ -62,6 +62,9 @@ def count_trees(matrix: Matrix):
                 # stop if highest tree in column has been spotted
                 if column[index] == longest_tree:
                     break
+        
+        # update column in matrix
+        boolean_matrix.update_column(i, boolean_column)
     return visible_tree_count
         
 def a(input):
