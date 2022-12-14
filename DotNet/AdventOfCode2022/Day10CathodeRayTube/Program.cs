@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using Day10CathodeRayTube.Domain;
 using Day10CathodeRayTube.Services;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Day10CathodeRayTube
     {
         static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
+            var summary = BenchmarkRunner.Run<ProgramBenchmarker>();
             SolutionWriter<string>.WriteSolution(PartOne(), PartTwo());
         }
 
