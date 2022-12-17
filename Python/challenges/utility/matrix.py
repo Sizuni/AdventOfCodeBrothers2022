@@ -31,6 +31,9 @@ class Matrix():
             column.append(self.matrix[i][index])
         return column
     
+    def get_row_and_column(self, row: int, column: int):
+        return self.get_row(row), self.get_column(column)
+    
     def update_column(self, index: int, column: list):
         column_index = -1
         for row in self.matrix:

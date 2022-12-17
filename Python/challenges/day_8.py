@@ -66,10 +66,56 @@ def count_trees(matrix: Matrix):
         # update column in matrix
         boolean_matrix.update_column(i, boolean_column)
     return visible_tree_count
+
+def calculate_scenic_score(matrix: Matrix, row_index: int, column_index: int):
+    scenic_score = 0
+    size = matrix.get_size()
+    row, column = matrix.get_row_and_column(row_index, column_index)
+    current_tree = row[column_index]
+    
+    left_distance = 0
+    right_distance = 0
+    up_distance = 0
+    down_distance = 0
+    
+    # left check
+    for i in range(column_index):
+        left_distance += 1
+        if row[column_index - (i + 1)] >= current_tree:
+            break
+    # right check
+    for i in range(size - column_index - 1):
+        right_distance += 1
+        if row[column_index + (i + 1)] >= current_tree:
+            break
+    # up check
+    for i in range(row_index):
+        up_distance += 1
+        if column[row_index - (i + 1)] >= current_tree:
+            break
+    # down check
+    for i in range(size - row_index - 1):
+        down_distance += 1
+        if column[row_index + (i + 1)] >= current_tree:
+            break
+    
+    scenic_score = left_distance * right_distance * up_distance * down_distance
+    return scenic_score
+        
+def get_highest_scenic_score(matrix: Matrix):
+    highest_scenic_score = 0
+    # iterate through each row
+    for i in range(matrix.get_size()):
+        for j in range(matrix.get_size()):
+            scenic_score = calculate_scenic_score(matrix, i, j)
+            if scenic_score > highest_scenic_score:
+                highest_scenic_score = scenic_score
+    return highest_scenic_score    
         
 def a(input):
     matrix = create_matrix(input)
     return count_trees(matrix)
 
 def b(input):
-    pass
+    matrix = create_matrix(input)
+    return get_highest_scenic_score(matrix)
